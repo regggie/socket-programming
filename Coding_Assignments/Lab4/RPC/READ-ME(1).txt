@@ -1,0 +1,31 @@
+To install and configure RPCGEN :
+1. First check if rpc in already installed or not using command,
+rpcinfo
+
+2.If not install RPCGEN using
+sudo apt-get install rpcbind
+
+3.Write .x file to generate source code for RPC
+Please refer to filestore.x file
+
+4.Compile it using following command,
+rpcgen -a -C filestore.x  (Note that -C is capital)
+Above command will generate filestore_*.c files for server and client along with make file to compile
+
+5.Edit filestore_server.c and filestore_client.c for putting your logic in code
+
+6. Compile using make -f Makefile.filestore
+
+
+commands to run the program :
+1. create 2 folders for storing files
+   a. At server side make ./filestore folder and place files in it (we have file1.txt and file2.txt there)
+   b. At client side make ./clientstore folder
+
+2. run server using ./filestore_server
+
+3. run client using ./filestore_client localhost file1.txt
+
+4. check for file in clientstore dir at client side
+
+
